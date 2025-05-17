@@ -3,13 +3,12 @@ package year2024.day01;
 import year2024.day01.utils.InputParser;
 
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Day01Part1Solver {
     public static int solve(List<int[]> pairs) {
-        List<Integer> left = new ArrayList<>(pairs.stream().map(p -> p[0]).sorted().toList());
-        List<Integer> right = new ArrayList<>(pairs.stream().map(p -> p[1]).sorted().toList());
+        List<Integer> left = pairs.stream().map(p -> p[0]).sorted().toList();
+        List<Integer> right = pairs.stream().map(p -> p[1]).sorted().toList();
 
         int res = 0;
         for (int i = 0; i < left.size(); i++) {
