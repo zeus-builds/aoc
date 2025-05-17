@@ -17,7 +17,7 @@ public class Day01SolverTest {
         assertNotNull(input, "Test file not found");
 
         var pairs = InputParser.safeInput(input);
-        int result = Day01Part1Solver.solve(pairs);
+        int result = Part1Solver.solve(pairs);
         assertEquals(11, result);
     }
 }
