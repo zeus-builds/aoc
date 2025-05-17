@@ -15,8 +15,8 @@ public class InputParser {
      */
 
     public static List<List<Integer>> parseLocationId(InputStream input) throws IOException {
-        List<Integer> a = new ArrayList<>();
-        List<Integer> b = new ArrayList<>();
+        List<Integer> left = new ArrayList<>();
+        List<Integer> right = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(input))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -24,12 +24,12 @@ public class InputParser {
                 if(parts.length == 2) {
                     int leftValue = Integer.parseInt(parts[0]);
                     int rightValue = Integer.parseInt(parts[1]);
-                    a.add(leftValue);
-                    b.add(rightValue);
+                    left.add(leftValue);
+                    right.add(rightValue);
                 }
             }
         }
-        return Arrays.asList(a, b);
+        return Arrays.asList(left, right);
     }
 
     public static List<List<Integer>> safeInput(InputStream input) {

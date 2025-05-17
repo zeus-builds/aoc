@@ -13,8 +13,8 @@ public class Part2Solver {
             freq.put(element, freq.getOrDefault(element, 0) + 1);
         }
         int res = 0;
-        for (int p : locationId.get(0)) {
-            res += p * freq.getOrDefault(p, 0);
+        for (int leftValue : locationId.get(0)) {
+            res += leftValue * freq.getOrDefault(leftValue, 0);
         }
         return res;
     }
