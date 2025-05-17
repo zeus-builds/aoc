@@ -5,16 +5,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class InputParser {
     /**
      * Parses an input stream where each line contains two integers separated by whitespace
-     * Returns a list of integer pairs
+     * Returns a pair of list of integers
      */
 
-    public static List<int[]> parsePairs(InputStream input) throws IOException {
-        List<int[]> pairs = new ArrayList<>();
+    public static List<List<Integer>> parseLocationId(InputStream input) throws IOException {
+        List<Integer> a = new ArrayList<>();
+        List<Integer> b = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(input))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -22,16 +24,17 @@ public class InputParser {
                 if(parts.length == 2) {
                     int leftValue = Integer.parseInt(parts[0]);
                     int rightValue = Integer.parseInt(parts[1]);
-                    pairs.add(new int[]{leftValue, rightValue});
+                    a.add(leftValue);
+                    b.add(rightValue);
                 }
             }
         }
-        return pairs;
+        return Arrays.asList(a, b);
     }
 
-    public static List<int[]> safeInput(InputStream input) {
+    public static List<List<Integer>> safeInput(InputStream input) {
         try {
-            return parsePairs(input);
+            return parseLocationId(input);
         } catch (IOException e) {
             throw new RuntimeException("Failed to parse input", e);
         }
