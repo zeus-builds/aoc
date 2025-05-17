@@ -1,0 +1,39 @@
+package year2024.day01.utils;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+public class InputParser {
+    /**
+     * Parses an input stream where each line contains two integers separated by whitespace
+     * Returns a list of integer pairs
+     */
+
+    public static List<int[]> parsePairs(InputStream input) throws IOException {
+        List<int[]> pairs = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(input))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.trim().split("\\s{3}");
+                if(parts.length == 2) {
+                    int leftValue = Integer.parseInt(parts[0]);
+                    int rightValue = Integer.parseInt(parts[1]);
+                    pairs.add(new int[]{leftValue, rightValue});
+                }
+            }
+        }
+        return pairs;
+    }
+
+    public static List<int[]> safeInput(InputStream input) {
+        try {
+            return parsePairs(input);
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to parse input", e);
+        }
+    }
+}
