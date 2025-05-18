@@ -6,7 +6,8 @@ import java.io.InputStream;
 
 public class Day01Solution {
     public static void main(String[] args) {
-        InputStream input = Day01Solution.class.getClassLoader().getResourceAsStream("year2024/day01/input.txt");
+        String filePath = "year2024/day01/input.txt";
+        InputStream input = Day01Solution.class.getClassLoader().getResourceAsStream(filePath);
         if (input == null) {
             System.out.println("Input file not found.");
             return;
