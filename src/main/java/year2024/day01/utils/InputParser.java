@@ -10,7 +10,7 @@ import java.util.List;
 
 public class InputParser {
     /**
-     * Parses an input stream where each line contains two integers separated by whitespace
+     * Parses an input stream where each line contains two integers separated by three whitespaces
      * Returns a pair of list of integers
      */
 
